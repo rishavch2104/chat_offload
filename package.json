@@ -8,8 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.10",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.9.10",
+    "babel-plugin-styled-components": "^1.10.7",
+    "file-loader": "^6.0.0",
+    "firebase": "^7.14.0",
     "next": "9.3.4",
+    "next-images": "^1.4.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "rubik": "^0.0.0",
+    "typeface-roboto": "^0.0.75"
   }
 }
