@@ -3,6 +3,9 @@ import { responsiveFontSizes, createMuiTheme } from "@material-ui/core";
 let muiThemeLight = createMuiTheme({
   overrides: {},
   palette: {
+    secondary: {
+      main: "#60d284"
+    },
     text: {
       secondary: "#60d284"
     }

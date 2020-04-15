@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import MenuIcon from "@material-ui/icons/Menu";
 import { muiThemeLight } from "../config/theme";
+import { signInWithGoogle } from "../config/authConfig";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,7 +24,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles();
-
+  const signIn = () => {
+    signInWithGoogle();
+  };
   return (
     <div className={classes.root}>
       <AppBar
@@ -34,16 +37,19 @@ export default function ButtonAppBar() {
       >
         <Toolbar>
           <Box
+            margin="auto"
             display="flex"
             flexDirection="row"
-            justifyContent="space-around"
-            width="100%"
+            justifyContent="space-between"
+            width="70%"
           >
             <Typography color="textSecondary" display="inline" variant="h4">
               OffLoad
             </Typography>
 
-            <Button color="inherit">Login</Button>
+            <Button onClick={signIn} color="inherit">
+              Login
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
