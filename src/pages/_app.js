@@ -22,22 +22,12 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-<<<<<<< HEAD
-
-=======
->>>>>>> landing_page
     return (
       <>
         <Head>
           <title>App Title</title>
           <meta
             name="viewport"
-<<<<<<< HEAD
-            content="minimum-scale=1, width=device-width, shrink-to-fit=no"
-          />
-        </Head>
-        <Component {...pageProps} />
-=======
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
         </Head>
@@ -47,7 +37,6 @@ class MyApp extends App {
             <Component {...pageProps} />
           </AuthProvider>
         </MuiThemeProvider>
->>>>>>> landing_page
       </>
     );
   }
