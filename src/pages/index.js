@@ -1,11 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import { Typography, Box, Button, Grid } from "@material-ui/core";
-import makeStyles from "@material-ui/styles/makeStyles";
-import Navbar from "../components/Navbar";
-import backgroundCover from "./../../public/img/backgroundCover.svg";
-import { signInWithGoogle } from "../config/firebaseConfig/auth";
-=======
 
 import { Typography, Box, Button, Grid } from "@material-ui/core";
 import IconButton from "@material-ui/core/Icon";
@@ -14,17 +7,12 @@ import makeStyles from "@material-ui/styles/makeStyles";
 import Navbar from "../components/Navbar";
 import backgroundCover from "./../../public/img/backgroundCover.svg";
 import { signInWithGoogle } from "../config/authConfig";
->>>>>>> landing_page
 const useStyles = makeStyles({
   image: {
     width: "90%",
     maxWidth: "1000px",
     height: "auto",
-<<<<<<< HEAD
-    marginTop: "3rem"
-=======
     margin: "auto"
->>>>>>> landing_page
   },
   griditem: {
     display: "flex",
@@ -36,10 +24,6 @@ const useStyles = makeStyles({
 });
 const Index = () => {
   const classes = useStyles();
-<<<<<<< HEAD
-=======
-
->>>>>>> landing_page
   const signIn = () => {
     signInWithGoogle();
   };
@@ -52,21 +36,11 @@ const Index = () => {
       }}
     >
       <Navbar />
-<<<<<<< HEAD
-      <Grid style={{ marginTop: "7rem" }} container>
-        <Grid item lg={6} sm={12}>
-          <Box
-            height="100%"
-            mt="20px"
-            ml="20px"
-            mr="20px"
-=======
       <Grid style={{ marginTop: "10rem" }} container>
         <Grid item lg={6} sm={12}>
           <Box
             height="100%"
             margin="auto"
->>>>>>> landing_page
             display="flex"
             flexDirection="column"
             alignItems="center"
@@ -79,9 +53,6 @@ const Index = () => {
               Share what you're going through, or help someone vent. The choice
               is yours!
             </Typography>
-<<<<<<< HEAD
-            <Button onClick={signIn}>Sign in</Button>
-=======
             <Button
               startIcon={
                 <IconButton>
@@ -110,7 +81,6 @@ const Index = () => {
             >
               Get Started
             </Button>
->>>>>>> landing_page
           </Box>
         </Grid>
         <Grid className={classes.griditem} item lg={6} sm={12}>
@@ -118,10 +88,7 @@ const Index = () => {
         </Grid>
       </Grid>
     </Box>
-<<<<<<< HEAD
-=======
   );
->>>>>>> landing_page
 };
 
 export default Index;
