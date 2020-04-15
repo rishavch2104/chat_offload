@@ -19,13 +19,12 @@ export const AuthContext = createContext([{}, () => {}]);
 export function AuthProvider(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+
   const handleLoginChange = toggle => {
-    setLoggedIn(toggle);
-    handleAuthenticatingChange(false);
+    setLoggedIn(() => toggle);
+    setIsAuthenticating(() => false);
   };
-  const handleAuthenticatingChange = toggle => {
-    setIsAuthenticating(toggle);
-  };
+
   React.useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {

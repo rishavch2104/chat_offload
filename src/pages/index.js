@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 });
 const Index = () => {
   const classes = useStyles();
-  const { isLoggedIn, isAuthenicating } = React.useContext(AuthContext);
+  const { isLoggedIn, isAuthenticating } = React.useContext(AuthContext);
   const signIn = () => {
     if (signInWithGoogle()) {
       Router.push("/homepage", "/homepage");
@@ -36,7 +36,7 @@ const Index = () => {
   };
   return (
     <>
-      {isAuthenicating === false ? (
+      {!isAuthenticating ? (
         !isLoggedIn ? (
           <Box
             height="100vh"
