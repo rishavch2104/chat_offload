@@ -29,11 +29,14 @@ const useStyles = makeStyles({
 const Index = () => {
   const classes = useStyles();
   const { isLoggedIn, isAuthenticating } = React.useContext(AuthContext);
-  const signIn = () => {
-    if (signInWithGoogle()) {
-      Router.push("/homepage", "/homepage");
-    }
+  const signIn = async () => {
+    const res = await signInWithGoogle();
+    console.log("signin completed");
+    console.log({ res });
   };
+  if (isLoggedIn) {
+    Router.push("/homepage", "/homepage");
+  }
   return (
     <>
       {!isAuthenticating ? (

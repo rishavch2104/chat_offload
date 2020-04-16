@@ -2,16 +2,15 @@ import React, { useState, createContext } from "react";
 import Router from "next/router";
 import firebase from "./firebaseConfig/firebaseConnect";
 
-export const signInWithGoogle = () => {
+export const signInWithGoogle = async () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-
-  firebase
-    .auth()
-    .signInWithPopup(provider)
-    .then(result => {
-      return result;
-    })
-    .catch(e => console.log(e.message));
+  const res = await firebase.auth().signInWithPopup(provider);
+  console.log({ res });
+  if (res.additionalUserInfo.isNewUser) {
+    Router.push("/register", "/register");
+  } else {
+    Router.push("/homepage", "/homepage");
+  }
 };
 
 export const AuthContext = createContext([{}, () => {}]);
@@ -30,7 +29,6 @@ export function AuthProvider(props) {
       if (user) {
         console.log({ user });
         setLoggedIn(true);
-        Router.push("/homepage", "/homepage");
       } else {
         console.log("no user");
         handleLoginChange(false);
