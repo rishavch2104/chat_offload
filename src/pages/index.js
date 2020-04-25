@@ -29,25 +29,19 @@ const useStyles = makeStyles({
 const Index = () => {
   const classes = useStyles();
   const { isLoggedIn, isAuthenticating } = React.useContext(AuthContext);
-  const signIn = async () => {
-    const res = await signInWithGoogle();
-    console.log("signin completed");
-    console.log({ res });
+  const signIn = () => {
+    signInWithGoogle();
   };
-  if (isLoggedIn) {
-    Router.push("/homepage", "/homepage");
-  }
+  React.useEffect(() => {
+    if (isLoggedIn === true) {
+      Router.push("/register", "/register");
+    }
+  }, [isLoggedIn]);
   return (
     <>
-      {!isAuthenticating ? (
+      {isAuthenticating === false ? (
         !isLoggedIn ? (
-          <Box
-            height="100vh"
-            style={{
-              backgroundImage:
-                "linear-gradient(45deg,rgba(255,255,255,1),rgba(255,255,255,1),rgba(255,255,255,1) , rgba(154,247,185,.7))"
-            }}
-          >
+          <>
             <Navbar />
             <Grid style={{ marginTop: "10rem" }} container>
               <Grid item lg={6} sm={12}>
@@ -100,7 +94,7 @@ const Index = () => {
                 <img className={classes.image} src={backgroundCover}></img>
               </Grid>
             </Grid>
-          </Box>
+          </>
         ) : (
           ""
         )

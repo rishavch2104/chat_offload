@@ -9,8 +9,12 @@ export const signInWithGoogle = async () => {
   if (res.additionalUserInfo.isNewUser) {
     Router.push("/register", "/register");
   } else {
-    Router.push("/homepage", "/homepage");
+    Router.push("/register", "/register");
   }
+};
+
+export const signOutwithGoogle = async () => {
+  const res = await firebase.auth().signOut();
 };
 
 export const AuthContext = createContext([{}, () => {}]);
@@ -28,20 +32,19 @@ export function AuthProvider(props) {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log({ user });
-        setLoggedIn(true);
+        console.log(isAuthenticating);
+        handleLoginChange(true);
       } else {
         console.log("no user");
         handleLoginChange(false);
         Router.push("/index", "/index");
       }
     });
-    return () => {
-      unsubscribe();
-    };
   }, []);
+
   return (
     <AuthContext.Provider
-      value={(isLoggedIn, handleLoginChange, isAuthenticating)}
+      value={{ isLoggedIn, handleLoginChange, isAuthenticating }}
     >
       {props.children}
     </AuthContext.Provider>

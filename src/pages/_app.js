@@ -1,11 +1,12 @@
 import React from "react";
 import App from "next/app";
 import Head from "next/head";
-
+import "react-phone-input-2/lib/high-res.css";
 import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
 import { muiThemeLight } from "./../config/theme";
 import { initFirebase } from "./../config/firebaseConfig/firebaseConnect";
 import { AuthProvider } from "./../config/authConfig";
+import BackgroundImageHoc from "./../config/backgroundImageHoc";
 class MyApp extends App {
   constructor() {
     super();
@@ -34,7 +35,9 @@ class MyApp extends App {
         <MuiThemeProvider theme={muiThemeLight}>
           <AuthProvider>
             <CssBaseline />
-            <Component {...pageProps} />
+            <BackgroundImageHoc>
+              <Component {...pageProps} />
+            </BackgroundImageHoc>
           </AuthProvider>
         </MuiThemeProvider>
       </>

@@ -1,8 +1,14 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
+import Navbar from "./../components/Navbar";
 
 const Homepage = () => {
-  return <Typography>HomePage!</Typography>;
+  return (
+    <>
+      <Navbar />
+      <Typography>HomePage!</Typography>
+    </>
+  );
 };
 
 export default Homepage;
